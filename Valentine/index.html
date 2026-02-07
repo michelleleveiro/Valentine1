@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Be My Valentine 💖</title>
+
+<!-- Romantic Font -->
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(#7b112c, #ffffff);
+  overflow: hidden;
+  font-family: 'Great Vibes', cursive;
+  text-align: center;
+  color: white;
+}
+
+h1 {
+  font-size: 4em;
+  margin-top: 60px;
+}
+
+.btn {
+  padding: 15px 30px;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  margin: 20px;
+}
+
+#yes {
+  background: white;
+  color: #7b112c;
+}
+
+#no {
+  background: #7b112c;
+  color: white;
+  position: absolute;
+}
+
+.cats img {
+  width: 150px;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+/* FLOATING HEARTS */
+.heart {
+  position: absolute;
+  color: hotpink;          /* brighter color */
+  font-size: 25px;         /* bigger hearts */
+  text-shadow: 1px 1px 5px white; /* glow effect */
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(1); opacity: 1; }
+  50% { transform: scale(1.3); }
+  100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+
+/* YES page */
+#yesPage {
+  font-family: 'Great Vibes', cursive;
+  color: #7b112c;
+  background: #fff0f5;
+  height: 100vh;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+#yesPage img {
+  border-radius: 30px;
+  width: 250px;
+  margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Will you be my Valentine? 💘</h1>
+
+<div class="cats">
+  <img src="cat1.png">
+  <img src="cat2.png">
+  <img src="cat3.png">
+  <img src="cat4.png">
+  <img src="cat5.png">
+</div>
+
+<br>
+
+<button id="yes" class="btn" onclick="yesPage()">YES 💖</button>
+<button id="no" class="btn">NO 😈</button>
+
+<script>
+// NO button runs away
+const noBtn = document.getElementById("no");
+noBtn.addEventListener("mouseover", () => {
+  noBtn.style.left = Math.random() * 80 + "vw";
+  noBtn.style.top = Math.random() * 80 + "vh";
+});
+
+// Floating hearts — more visible
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (20 + Math.random() * 30) + "px"; // bigger variation
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), 6000);
+}, 200); // more hearts
+
+// YES page
+function yesPage() {
+  document.body.innerHTML = `
+    <div id="yesPage">
+      <h1>YIPPIEEEE</h1>
+      <h1>I LOVE YOU SM BB</h1>
+      <img src="cat-flower.png" width="250">
+      <h1>Happy Valentine’s Day 💕</h1>
+    </div>
+  `;
+}
+</script>
+
+</body>
+</html>
